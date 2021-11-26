@@ -5,7 +5,7 @@ app = Flask(__name__)
 @app.route("/")
 def homepage():
     title = "This is the homepage"
-    text = "type /fizzbuzz/(insert number) in the url"
+    text = "type /fizzbuzz/(insert number) or /words/(insert word) in the url"
 
     return render_template('homepage.html', title=title, text=text)
 
@@ -22,3 +22,13 @@ def fizzbuzz(n):
         else:
             result.append(i)
     return render_template('fizzbuzz.html', result=result)
+
+@app.route("/words/<string:word>")
+def words(word):
+    f = open('words.txt')
+    word_list = f.read().splitlines()
+    anagrams = []
+    for i in word_list:
+        if sorted(word.upper()) == sorted(i):
+            anagrams.append(i)
+    return render_template('words.html', anagrams=anagrams)
