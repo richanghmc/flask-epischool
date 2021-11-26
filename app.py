@@ -32,3 +32,13 @@ def words(word):
         if sorted(word.upper()) == sorted(i):
             anagrams.append(i)
     return render_template('words.html', anagrams=anagrams)
+
+@app.route("/fizzbuzz/<string:word>")
+def fizzbuzzString(word):
+    f = open('words.txt')
+    word_list = f.read().splitlines()
+    anagrams = []
+    for i in word_list:
+        if sorted(word.upper()) == sorted(i):
+            anagrams.append(i)
+    return render_template('words.html', anagrams=anagrams)
