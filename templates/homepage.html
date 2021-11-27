@@ -1,4 +1,15 @@
 <html>
     <h1>{{title}}</h1>
-    <p>{{text}}</p>
+
+    <h2>Check out these anagrams: </h2>
+    <ul>
+        <li>
+            <a href="{{ url_for('words', word='LISTEN') }}"> LISTEN</a>
+        </li>
+        <li>
+            <a href="{{ url_for('words', word='STAR') }}">STAR</a>
+        </li>
+    </ul>
+
+    <h2>Check out this <a href="{{ url_for('dictionaryHome') }}">dictionary</a></h2>
 </html>

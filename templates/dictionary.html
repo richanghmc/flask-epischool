@@ -1,0 +1,19 @@
+<html>
+    <h1>Dictionary</h1>
+
+    <h2>{{text}}</h2>
+    {% if is_real_word %}
+    <h2>{{ s }} is a real word!!</h2>
+    {% endif %}
+
+    <h3>{{ numberOfPrefix }} {{ prefixPhrase }} {{ s }}</h3>
+
+    <ul>
+        {% for i in alphabet %}
+            <li><a href="{{ url_for('dictionary', s=i) }}">{{ i }}</a></li>
+        {% endfor %}
+    </ul>
+
+    
+
+</html>
